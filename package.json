@@ -1,0 +1,23 @@
+{
+  "name": "moviecrawler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "node": "node server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyccpq/movieCrawler.git"
+  },
+  "author": "hyccpq",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hyccpq/movieCrawler/issues"
+  },
+  "homepage": "https://github.com/hyccpq/movieCrawler#readme",
+  "dependencies": {
+    "kao": "^1.3.29"
+  }
+}
