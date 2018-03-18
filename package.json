@@ -19,6 +19,8 @@
   "homepage": "https://github.com/hyccpq/movieCrawler#readme",
   "dependencies": {
     "koa": "^2.5.0",
-    "puppeteer": "^1.2.0"
+    "puppeteer": "^1.2.0",
+    "request": "^2.85.0",
+    "request-promise-native": "^1.0.5"
   }
 }
