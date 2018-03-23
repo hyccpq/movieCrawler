@@ -7,7 +7,7 @@ const movies = [{
 
 const qiniu = require('qiniu')
 const nanoId = require('nanoid')
-const config = require('../config')
+const config = require('../config/index')
 
 const bucket = config.qiniu.bucket
 const mac = new qiniu.auth.digest.Mac(config.qiniu.AK, config.qiniu.SK)
