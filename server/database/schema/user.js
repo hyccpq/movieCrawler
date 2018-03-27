@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-const Mixed = Schema.Types.Mixed
 const bcrypt = require('bcrypt')
 const SALT_WORK_FACTOR = 10
 const MAX_LOGIN_ATTEMPS = 5
@@ -40,7 +39,7 @@ const userSchema = new Schema({
 
 userSchema.virtual('isLocked').get(() => this.lockUntil && this.lockUntil > Date.now())
 
-userSchema.pre('save', next => {
+userSchema.pre('save', function(next) {
 	if(this.isNew){
 		this.meta.createdAt = this.meta.updatedAt = Date.now()
 	} else {
@@ -49,7 +48,7 @@ userSchema.pre('save', next => {
 	next()
 })
 
-userSchema.pre('save', next => {
+userSchema.pre('save', function(next) {
 	if(!this.isModified('password')) return next()
 	bcrypt.genSalt(SALT_WORK_FACTOR, (err, salt) => {
 		if(err) return next(err)
@@ -109,4 +108,4 @@ userSchema.method = {
 	}
 }
 
-mongoose.model('Movie', movieSchema)
+mongoose.model('User', userSchema)
