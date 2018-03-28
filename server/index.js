@@ -6,5 +6,6 @@ const { connect, initSchemas } = require('./database/init')
 	await connect()
 	
 	initSchemas()
-	require('./tasks/process')
+	await require('./tasks/process')
+	require('./tasks/api')
 })()
