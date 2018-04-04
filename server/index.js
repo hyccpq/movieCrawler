@@ -11,7 +11,7 @@ const app = new Koa()
 	// await require('./tasks/process')
 	// await require('./tasks/api')
 	// await require('./tasks/trailer_video_process')
-	// await require('./tasks/qiniu')
+	await require('./tasks/qiniu')
 })()
 
 app
