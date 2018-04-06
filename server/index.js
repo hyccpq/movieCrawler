@@ -1,7 +1,9 @@
 const Koa = require('koa')
-const mongooose = require('mongoose')
 const { connect, initSchemas } = require('./database/init')
-const routes = require('./routes')
+// const routes = require('./routes')
+const { resolve } = require('path')
+const R = require('ramda')
+const MIDDLEWARES = ['router']
 
 const app = new Koa()
 ;(async () =>{
@@ -11,13 +13,25 @@ const app = new Koa()
 	// await require('./tasks/process')
 	// await require('./tasks/api')
 	// await require('./tasks/trailer_video_process')
-	await require('./tasks/qiniu')
+	// await require('./tasks/qiniu')
+	const useMiddlewares = app => {
+		R.map(
+			R.compose(
+				R.forEachObjIndexed(
+					initWith => initWith(app)
+				),
+				require,
+				name => resolve(__dirname, `./middlewares/${name}`)
+			)
+		)(MIDDLEWARES)
+	}
+	
+	useMiddlewares(app)
+	
+	app.listen(5678, () => {
+		console.log('服务运行于\nhttp://localhost:5678');
+	})
+	
+	
 })()
 
-app
-	.use(routes.routes())
-	.use(routes.allowedMethods())
-
-app.listen(5678, () => {
-	console.log('服务运行于http://localhost:5678');
-})

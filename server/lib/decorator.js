@@ -1,7 +1,7 @@
 const Router = require('koa-router')
 const { resolve } = require('path')
 const glob = require('glob')
-const _ = require('loadsh')
+const _ = require('lodash')
 
 const symbolPrefix = Symbol('prefix')
 const routerMap = new Map()
@@ -35,9 +35,9 @@ const normalizePath = path => path.startsWith('/') ? path : `/${path}`
 
 const router = conf => (target, key, descriptor) => {
 	conf.path = normalizePath(conf.path)
-	
+	console.log(...conf)
 	routerMap.set({
-		target,
+		target: target,
 		...conf
 	}, target[key])
 }

@@ -3,7 +3,7 @@ import { controller, post } from '../lib/decorator'
 import { checkPassword } from '../service/admin'
 
 @controller('/api/v0/user')
-class User {
+export class User {
 	@post('/')
 	async loadControl (ctx, next) {
 		const { email, password } = ctx.request.body

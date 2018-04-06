@@ -2,7 +2,7 @@ import { getAllMovies, getMovieDet, getRelativeMoives} from '../service/getMovie
 import { controller, get } from '../lib/decorator'
 
 @controller('/api/v0/movies')
-export class movieController {
+export class MovieController {
 	@get('/')
 	async getMovies (ctx, next) {
 		const { type, year } = ctx.query
