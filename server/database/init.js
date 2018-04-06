@@ -24,6 +24,7 @@ exports.connect = () => {
 			if(maxConnect < 5){
 				mongoose.connect(db)
 			} else {
+				reject()
 				throw new Error('数据库连接失败！')
 			}
 		})
@@ -33,6 +34,7 @@ exports.connect = () => {
 			if(maxConnect < 5){
 				mongoose.connect(db)
 			} else {
+				reject()
 				throw new Error('数据库连接失败！')
 			}
 		})
