@@ -1,4 +1,4 @@
-import { getAllMovies,getMovieDet} from '../service/movie'
+import { getAllMovies, getMovieDet, getRelativeMoives} from '../service/getMovieDatabase'
 import { controller, get } from '../lib/decorator'
 
 @controller('/api/v0/movies')
@@ -15,9 +15,13 @@ export class movieController {
 	@get('/:id')
 	async getMovieDetail (ctx, next) {
 		const id = ctx.params.id
-		const movies = await getMovieDet(id)
+		const movie = await getMovieDet(id)
+		const relativeMovies = await getRelativeMoives(movie)
 		ctx.body = {
-			movies
+			data: {
+				movie,
+				relativeMovies
+			}
 		}
 	}
 }
