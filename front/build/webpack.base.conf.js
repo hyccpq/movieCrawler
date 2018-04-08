@@ -5,7 +5,9 @@ const { resolve } = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 let config = {
-	entry: '../src/main.js',
+	entry: {
+		app: resolve(__dirname, '../src/main.js')
+	},
 	output:{
 		path: resolve(__dirname, '../dist')
 	},
@@ -55,19 +57,12 @@ let config = {
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			template: '../src/index.html'
-		}),
-		new webpack.HotModuleReplacementPlugin(),
-	],
-	devServer:{
-		historyApiFallback: true,
-		noInfo: true,
-		overlay: true,
-		port:9000,
-		hot:true,
-		inline:true,
-		open:true
-	}
+			filename: 'index.html',
+			template: resolve(__dirname,'../src/index.html'),
+			chunks:['app'],
+			hash: true
+		})
+	]
 }
 
 module.exports = config
