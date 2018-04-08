@@ -14,6 +14,7 @@ const app = new Koa()
 	// await require('./tasks/api')
 	// await require('./tasks/trailer_video_process')
 	// await require('./tasks/qiniu')
+	
 	const useMiddlewares = app => {
 		R.map(
 			R.compose(
