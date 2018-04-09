@@ -6,10 +6,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 let config = {
 	entry: {
-		app: resolve(__dirname, '../src/main.js')
+		app: ["webpack-hot-middleware/client?noInfo=true&reload=true",resolve(__dirname, '../src/main.js')]
 	},
 	output:{
 		path: resolve(__dirname, '../dist')
+	},
+	resolve: {
+		extensions: ['.js', '.vue', '.json']
 	},
 	module: {
 		rules: [

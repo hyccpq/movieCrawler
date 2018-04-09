@@ -1,17 +1,15 @@
 'use strict'
 const merge = require('webpack-merge')
+const webpack = require('webpack')
 const baseConfig = require('./webpack.base.conf')
 
 const dev = merge(baseConfig, {
 	mode: 'development',
 	devtool: 'cheap-module-eval-source-map',
-	devServer: {
-    host: '127.0.0.1',
-    port: 8010,
-    historyApiFallback: false,
-    noInfo: true,
-    open: true
-	}
+	plugins: [
+		new webpack.NamedModulesPlugin(),
+		new webpack.HotModuleReplacementPlugin()
+	]
 })
 
 module.exports = dev

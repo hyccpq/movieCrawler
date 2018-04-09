@@ -3,7 +3,7 @@ const { connect, initSchemas } = require('./database/init')
 // const routes = require('./routes')
 const { resolve } = require('path')
 const R = require('ramda')
-const MIDDLEWARES = ['router']
+const MIDDLEWARES = ['webpack-dev','router']
 
 const app = new Koa()
 ;(async () =>{
