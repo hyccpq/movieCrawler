@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 let config = {
 	entry: {
-		app: ["webpack-hot-middleware/client?noInfo=true&reload=true",resolve(__dirname, '../src/main.js')]
+		app: [resolve(__dirname, '../src/main.js')]
 	},
 	output:{
 		path: resolve(__dirname, '../dist')

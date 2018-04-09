@@ -11,5 +11,6 @@ const dev = merge(baseConfig, {
 		new webpack.HotModuleReplacementPlugin()
 	]
 })
+dev.entry['app'].unshift("webpack-hot-middleware/client?reload=true")
 
 module.exports = dev
