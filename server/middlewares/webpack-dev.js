@@ -1,5 +1,5 @@
 import dev from './dev/devMiddleware'
-import hot from './dev/hotMiddelwate'
+import hot from './dev/hotMiddelware'
 import webpack from 'webpack'
 import serve from 'koa-static'
 import views from 'koa-views'

@@ -1,12 +1,14 @@
 <template>
   <el-container>
-    <my-nav></my-nav>
-    <el-header>
+    <el-header style="padding: 0">
+      <my-nav></my-nav>
     </el-header>
     <el-container>
       <el-aside width="200px">Aside</el-aside>
       <el-container>
-        <el-main>Main</el-main>
+        <el-main>
+          <router-view />
+        </el-main>
       </el-container>
     </el-container>
     <el-footer>Footer</el-footer>
@@ -21,7 +23,7 @@
     Main,
     Footer
   } from 'element-ui'
-  import nav from './components/plugin/nav'
+  import myNav from './components/plugin/nav'
 	export default {
 		name: "App",
 		components:{
@@ -30,7 +32,7 @@
 			elAside: Aside,
 			elMain: Main,
 			elFooter: Footer,
-      myNav: nav
+      myNav
 		},
 		data(){
 			return {

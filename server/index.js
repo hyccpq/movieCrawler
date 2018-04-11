@@ -5,7 +5,7 @@ const { resolve } = require('path')
 const R = require('ramda')
 const MIDDLEWARES = ['router', 'logs']
 const prod = process.env.NODE_ENV === 'production'
-
+	console.log(process.env.NODE_ENV);
 if(!prod){
 	MIDDLEWARES.push('webpack-dev')
 } else {

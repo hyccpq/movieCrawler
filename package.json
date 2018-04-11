@@ -7,7 +7,7 @@
     "dev": "rm -rf front/dist && rm -rf .cache && nodemon start.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "node": "nodemon server/index.js",
-    "start": "rm -rf front/dist && rm -rf .cache && node NODE_ENV=pronduction start.js"
+    "start": "rm -rf front/dist && rm -rf .cache && NODE_ENV=production node start.js"
   },
   "repository": {
     "type": "git",
@@ -54,6 +54,7 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-0": "^6.24.1",
+    "cross-env": "^5.1.4",
     "css-loader": "^0.28.11",
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",

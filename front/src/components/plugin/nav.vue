@@ -29,7 +29,7 @@
     Submenu
   } from 'element-ui'
 	export default {
-		name: "nav",
+		name: "my-nav",
     components: {
 			elMenu: Menu,
       elMenuItem: MenuItem,
