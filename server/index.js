@@ -8,6 +8,8 @@ const prod = process.env.NODE_ENV === 'production'
 
 if(!prod){
 	MIDDLEWARES.push('webpack-dev')
+} else {
+	MIDDLEWARES.push('prod')
 }
 
 const app = new Koa()

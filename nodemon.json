@@ -4,6 +4,6 @@
   "verbose": true,
   "watch": [
     "server/",
-    "src"
+    "front/src"
   ]
 }

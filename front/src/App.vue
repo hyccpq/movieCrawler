@@ -1,14 +1,37 @@
 <template>
-  <div>
-    <input type="text" v-model="sth">{{ sth }}
-    <router-link to="/detail/1">6666</router-link>
-    <router-view/>
-  </div>
+  <el-container>
+    <my-nav></my-nav>
+    <el-header>
+    </el-header>
+    <el-container>
+      <el-aside width="200px">Aside</el-aside>
+      <el-container>
+        <el-main>Main</el-main>
+      </el-container>
+    </el-container>
+    <el-footer>Footer</el-footer>
+  </el-container>
 </template>
 
 <script>
+  import {
+  	Container,
+    Header,
+    Aside,
+    Main,
+    Footer
+  } from 'element-ui'
+  import nav from './components/plugin/nav'
 	export default {
 		name: "App",
+		components:{
+			elContainer: Container,
+			elHeader: Header,
+			elAside: Aside,
+			elMain: Main,
+			elFooter: Footer,
+      myNav: nav
+		},
 		data(){
 			return {
 				sth:''

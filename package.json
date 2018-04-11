@@ -4,10 +4,10 @@
   "description": "",
   "main": "server/index.js",
   "scripts": {
-    "dev": "webpack-dev-server --inline --hot --config front/build/webpack.dev.conf.js",
+    "dev": "rm -rf front/dist && rm -rf .cache && nodemon start.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "node": "nodemon server/index.js",
-    "start": "nodemon start.js"
+    "start": "rm -rf front/dist && rm -rf .cache && node NODE_ENV=pronduction start.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bcrypt": "^1.0.3",
+    "element-ui": "^2.3.3",
     "glob": "^7.1.2",
     "koa": "^2.5.0",
     "koa-logger": "^3.2.0",
@@ -36,6 +37,7 @@
     "ramda": "^0.25.0",
     "request": "^2.85.0",
     "request-promise-native": "^1.0.5",
+    "style-loader": "^0.20.3",
     "vue": "^2.5.16",
     "vue-router": "^3.0.1",
     "webpack-dev-middleware": "^3.1.2",

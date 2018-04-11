@@ -41,6 +41,10 @@ let config = {
 					}
 				}
 			},
+			{
+				test: /\.css$/,
+				use: ["style-loader", "css-loader?minimize"]
+			},
       {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
         loader: 'url-loader',
