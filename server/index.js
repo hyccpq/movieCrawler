@@ -3,7 +3,7 @@ const { connect, initSchemas } = require('./database/init')
 // const routes = require('./routes')
 const { resolve } = require('path')
 const R = require('ramda')
-const MIDDLEWARES = ['router']
+const MIDDLEWARES = ['router', 'logs']
 const prod = process.env.NODE_ENV === 'production'
 
 if(!prod){

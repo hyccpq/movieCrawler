@@ -9,7 +9,10 @@ let config = {
 		app: [resolve(__dirname, '../src/main.js')]
 	},
 	output:{
-		path: resolve(__dirname, '../dist')
+		path: resolve(__dirname, '../dist'),
+		filename: "js/[name].js",
+		chunkFilename: "js/[name].[hash:8].js",
+		publicPath: "/"
 	},
 	resolve: {
 		extensions: ['.js', '.vue', '.json']
