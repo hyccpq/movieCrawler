@@ -1,9 +1,10 @@
 <template>
   <section>
     <el-row class="content">
-      <el-col :span="6" v-for="(value,key) in movies" :key="key" :offset="key % 4 === 0 ? 0 : 0">
+      <el-col v-for="(value,key) in movies" :key="key" class="content-item">
         <el-card :body-style="{ padding: '0px' }">
-          <img :src="`http://uploads.kalecgos.top/${value.poster}`" class="image">
+          <img :src="`http://uploads.kalecgos.top/${value.poster}?
+imageMogr2/auto-orient/thumbnail/540x800!/blur/1x0/quality/75|imageslim`" class="image">
           <div style="padding: 14px;">
             <h2>{{ value.rawTitle }}</h2>
             <p>{{ value.summary }}</p>
@@ -60,6 +61,12 @@
 </script>
 
 <style scoped>
+  .content-item {
+    width: 540px;
+    height: auto;
+    padding: 5px;
+  }
+
   .time {
     font-size: 13px;
     color: #999;
@@ -91,9 +98,6 @@
   }
 
   .content {
-    display: flex;
-    flex-flow: column wrap;
-    width: 100%;
-    height: 6000px;
+
   }
 </style>
