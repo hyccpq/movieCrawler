@@ -5,8 +5,8 @@ import { controller, get } from '../lib/decorator'
 export class MovieController {
 	@get('/')
 	async getMovies (ctx, next) {
-		const { type, year } = ctx.query
-		const movies = await getAllMovies(type, year)
+		const { type, year, limit, skip } = ctx.query
+		const movies = await getAllMovies(type, year, parseInt(limit), skip)
 		ctx.body = {
 			movies
 		}

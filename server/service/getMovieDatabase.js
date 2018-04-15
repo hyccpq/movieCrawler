@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
 const GetMovieDatabase = mongoose.model('Movie')
 
-export const getAllMovies = async (type, year) => {
+export const getAllMovies = async (type, year, limit = 10, skip = 0) => {
 	let query = {}
 	if(type) {
 		query.movieTypes = {
@@ -13,7 +13,7 @@ export const getAllMovies = async (type, year) => {
 		query.year = year
 	}
 	try{
-		const movies = await GetMovieDatabase.find(query)
+		const movies = await GetMovieDatabase.find(query).limit(limit).skip(skip)
 		
 		return movies
 	} catch (e) {

@@ -38,7 +38,10 @@
 			return {
 				sth:''
 			}
-		}
+		},
+    beforeMount(){
+			this.$store.dispatch('getMoviesList')
+    }
 	}
 </script>
 
