@@ -92,10 +92,18 @@ imageMogr2/auto-orient/thumbnail/540x800!/blur/1x0/quality/75|imageslim`"
 </script>
 
 <style scoped>
+
+  .content{
+    column-width: 360px;
+    overflow: hidden;
+  }
+
   .content-item {
     width: 360px;
     height: auto;
     padding: 5px;
+    display: block;
+    overflow: hidden;
   }
 
   .time {
