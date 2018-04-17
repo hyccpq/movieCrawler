@@ -4,8 +4,8 @@
       <my-nav></my-nav>
     </el-header>
     <el-container>
-      <el-aside width="200px">Aside</el-aside>
-      <el-container>
+      <my-aside :movieTypes="types"></my-aside>
+      <el-container class="right-content">
         <el-main>
           <router-view />
         </el-main>
@@ -16,6 +16,8 @@
 </template>
 
 <script>
+  import { mapState } from 'vuex'
+  import aside from './components/plugin/aside'
   import {
   	Container,
     Header,
@@ -32,15 +34,22 @@
 			elAside: Aside,
 			elMain: Main,
 			elFooter: Footer,
-      myNav
+      myNav,
+      myAside:aside
 		},
 		data(){
 			return {
 				sth:''
 			}
 		},
+    computed:{
+      ...mapState({
+        types: state => state.movieTypes
+      })
+    },
     beforeMount(){
 			this.$store.dispatch('getMoviesList')
+      this.$store.dispatch('getMoviesTypes')
     }
 	}
 </script>
@@ -49,5 +58,8 @@
   html *{
     padding: 0;
     margin: 0;
+  }
+  .right-content {
+    padding-left: 100px;
   }
 </style>

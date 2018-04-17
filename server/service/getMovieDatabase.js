@@ -44,3 +44,23 @@ export const getRelativeMoives = async (movie) => {
 		console.log(e);
 	}
 }
+
+export const getMovieTypes = async () => {
+	try {
+		let movieTypes = []
+		const movies = await GetMovieDatabase.find()
+		movies.forEach(item => {
+			let type = item.movieTypes
+			for(let i = 0; i < type.length; i++){
+				if(movieTypes.indexOf(type[i]) === -1){
+					movieTypes.push(type[i])
+				}
+			}
+		})
+		return {
+			movieTypes
+		}
+	} catch (e) {
+		console.log(e);
+	}
+}

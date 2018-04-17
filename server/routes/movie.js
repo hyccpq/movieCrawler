@@ -1,4 +1,4 @@
-import { getAllMovies, getMovieDet, getRelativeMoives} from '../service/getMovieDatabase'
+import { getAllMovies, getMovieDet, getRelativeMoives, getMovieTypes } from '../service/getMovieDatabase'
 import { controller, get } from '../lib/decorator'
 
 @controller('/api/v0/movies')
@@ -9,6 +9,14 @@ export class MovieController {
 		const movies = await getAllMovies(type, year, parseInt(limit), skip)
 		ctx.body = {
 			movies
+		}
+	}
+	
+	@get('/types')
+	async getMoviesTypes(ctx, next){
+		const types= await getMovieTypes()
+		ctx.body = {
+			types
 		}
 	}
 	
@@ -24,4 +32,6 @@ export class MovieController {
 			}
 		}
 	}
+	
+	
 }

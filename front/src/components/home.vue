@@ -93,15 +93,15 @@ imageMogr2/auto-orient/thumbnail/540x800!/blur/1x0/quality/75|imageslim`"
 
 <style scoped>
 
-  .content{
-    column-width: 360px;
-    overflow: hidden;
-  }
+  /*.content{*/
+    /*column-width: 480px;*/
+    /*overflow: hidden;*/
+  /*}*/
 
   .content-item {
     width: 360px;
-    height: auto;
-    padding: 5px;
+    height: 900px;
+    padding: 0px;
     display: block;
     overflow: hidden;
   }

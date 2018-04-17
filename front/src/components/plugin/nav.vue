@@ -1,5 +1,5 @@
 <template>
-  <nav>
+  <nav id="nav">
     <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
       <el-menu-item index="1">处理中心</el-menu-item>
       <el-submenu index="2">
@@ -50,5 +50,11 @@
 </script>
 
 <style scoped>
-
+#nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
 </style>

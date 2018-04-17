@@ -6,7 +6,8 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
 	state: {
-		movies: {}
+		movies: {},
+		movieTypes:[]
 	},
 	
 	actions:{
@@ -14,12 +15,20 @@ export default new Vuex.Store({
 			let res = await movieApi.getAllMoviesList(type, year, page, limit)
 			commit('GET_ALL_MOVIES', res)
 			return res
+		},
+		async getMoviesTypes({ commit }){
+			let res = await movieApi.getAllMoviesTypes()
+			commit('GET_MOVIE_TYPES', res)
+			return res
 		}
 	},
 	
 	mutations: {
 		GET_ALL_MOVIES(state, { data }) {
 			state.movies = data
+		},
+		GET_MOVIE_TYPES(state, { data }) {
+			state.movieTypes = data.types.movieTypes
 		}
 	}
 })

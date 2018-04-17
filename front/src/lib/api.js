@@ -13,3 +13,11 @@ export const getAllMoviesList = async (type, year, page = 0, limit = 10) => {
 	})
 	return res
 }
+
+export const getAllMoviesTypes = async () => {
+	let res = await $http({
+		method: 'get',
+		url: 'movies/types'
+	})
+	return res
+}
