@@ -25,6 +25,7 @@ let config = {
 	      options: {
 		      loaders: {
 			      css: ['vue-style-loader', 'css-loader'],
+			      less: ['vue-style-loader', 'css-loader', 'less-loader']
 		      },
 		      preserveWhitespace: false,
 		      postcss: [require('autoprefixer')({ browsers: ['last 7 versions'] })]
@@ -44,6 +45,10 @@ let config = {
 			{
 				test: /\.css$/,
 				use: ["style-loader", "css-loader?minimize"]
+			},
+			{
+				test: /\.less$/,
+				use: ["style-loader", "less-loader", "css-loader?minimize"]
 			},
       {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,

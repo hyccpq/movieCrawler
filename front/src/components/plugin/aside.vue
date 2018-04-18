@@ -7,7 +7,7 @@
       <el-menu-item index="0">
         <span slot="title">全部</span>
       </el-menu-item>
-      <el-menu-item v-for="(item, key) in movieTypes" :index="key+1+''">
+      <el-menu-item v-for="(item, key) in movieTypes" :index="key+1+''" :key="key">
         <span slot="title">{{item}}</span>
       </el-menu-item>
     </el-menu>

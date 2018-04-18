@@ -91,12 +91,7 @@ imageMogr2/auto-orient/thumbnail/540x800!/blur/1x0/quality/75|imageslim`"
 	}
 </script>
 
-<style scoped>
-
-  /*.content{*/
-    /*column-width: 480px;*/
-    /*overflow: hidden;*/
-  /*}*/
+<style scoped lang="less">
 
   .content-item {
     width: 360px;
