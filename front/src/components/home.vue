@@ -7,13 +7,20 @@
             :src="`http://uploads.kalecgos.top/${value.poster}?
 imageMogr2/auto-orient/thumbnail/540x800!/blur/1x0/quality/75|imageslim`"
             class="image"></a>
-          <div style="padding: 14px;">
-            <h2>{{ value.rawTitle }}</h2>
-            <p>{{ value.summary }}</p>
-            <div class="bottom clearfix">
+
+          <div style="padding: 14px;" class="content-section">
+            <div class="summery">
+              <router-link :to="`/detail/${value.doubanId}`">
+                <h2 class="title">{{ value.rawTitle }}</h2>
+              </router-link>
+              <p>{{ value.summary }}</p>
+            </div>
+            <div class="bottom clearfix content-item-little">
               <time class="time">{{ localTime(value.meta.updatedAt) }}</time>
-              <el-button type="text" class="button">查看详细</el-button>
-              <div><span>豆瓣评分：</span>{{ value.rate }}</div>
+              <router-link :to="`/detail/${value.doubanId}`">
+                <el-button type="text" class="button">查看详细</el-button>
+              </router-link>
+              <div class="douban-rate"><span>豆瓣评分：</span>{{ value.rate }}</div>
             </div>
           </div>
         </el-card>
@@ -99,6 +106,24 @@ imageMogr2/auto-orient/thumbnail/540x800!/blur/1x0/quality/75|imageslim`"
     padding: 0px;
     display: block;
     overflow: hidden;
+
+    .content-section {
+      height: 341px;
+      min-height: 341px;
+
+      .summery {
+        height: 298px;
+        overflow: hidden;
+      }
+
+      .content-item-little {
+        height: 30px;
+
+        .douban-rate {
+          margin: 6px auto;
+        }
+      }
+    }
   }
 
   .time {

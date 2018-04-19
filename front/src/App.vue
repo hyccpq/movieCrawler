@@ -59,6 +59,10 @@
     padding: 0;
     margin: 0;
   }
+  a{
+    text-decoration:none;
+    color:#333;
+  }
   .right-content {
     padding-left: 100px;
   }
