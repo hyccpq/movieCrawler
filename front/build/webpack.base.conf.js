@@ -19,16 +19,24 @@ let config = {
 	},
 	module: {
 		rules: [
-      {
-        test: /\.vue$/,
-        loader: 'vue-loader',
-	      options: {
-		      loaders: {
-			      css: ['vue-style-loader', 'css-loader'],
-			      less: ['vue-style-loader', 'css-loader', 'less-loader']
-		      },
+			{
+				test: /\.vue$/,
+				loader: 'vue-loader',
+				options: {
+					loaders: {
+						css: [
+							{ loader: 'style-loader', options: { sourceMap: true } },
+							{ loader: 'css-loader', options: { sourceMap: true } },
+							{ loader: 'postcss-loader', options: { sourceMap: true } },
+						],
+						less: [
+							{ loader: 'style-loader', options: { sourceMap: true } },
+							{ loader: 'css-loader', options: { sourceMap: true } },
+							{ loader: 'less-loader', options: { sourceMap: true } },
+							{ loader: 'postcss-loader', options: { sourceMap: true } },
+						]
+					},
 		      preserveWhitespace: false,
-		      postcss: [require('autoprefixer')({ browsers: ['last 7 versions'] })]
 	      }
       },
 			{
@@ -44,11 +52,20 @@ let config = {
 			},
 			{
 				test: /\.css$/,
-				use: ["style-loader", "css-loader?minimize"]
+				use: [
+					{ loader: 'style-loader', options: { sourceMap: true } },
+					{ loader: 'css-loader', options: { sourceMap: true } },
+					{ loader: 'postcss-loader', options: { sourceMap: true } },
+				]
 			},
 			{
 				test: /\.less$/,
-				use: ["style-loader", "less-loader", "css-loader?minimize"]
+				use: [
+					{ loader: 'style-loader', options: { sourceMap: true } },
+					{ loader: 'css-loader', options: { sourceMap: true } },
+					{ loader: 'less-loader', options: { sourceMap: true } },
+					{ loader: 'postcss-loader', options: { sourceMap: true } },
+				]
 			},
       {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
