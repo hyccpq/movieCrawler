@@ -11,7 +11,7 @@
         </el-main>
       </el-container>
     </el-container>
-    <el-footer>Footer</el-footer>
+    <el-footer>@2018 Kalec的电影小站</el-footer>
   </el-container>
 </template>
 
