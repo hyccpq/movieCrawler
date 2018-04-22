@@ -101,9 +101,9 @@ imageMogr2/auto-orient/thumbnail/540x800!/blur/1x0/quality/75|imageslim`"
 <style scoped lang="less">
 
   .content-item {
-    width: 360px;
-    height: 900px;
-    padding: 0px;
+    width: 20%;
+    /*height: 900px;*/
+    padding: 0;
     display: block;
     overflow: hidden;
 

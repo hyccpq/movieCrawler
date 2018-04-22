@@ -21,3 +21,11 @@ export const getAllMoviesTypes = async () => {
 	})
 	return res
 }
+
+export const getMovieDetail = async (id) => {
+	let res = await $http({
+		method: 'get',
+		url: 'movies/' + id
+	})
+	return res
+}

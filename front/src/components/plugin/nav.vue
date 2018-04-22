@@ -2,9 +2,9 @@
   <nav id="nav">
     <el-menu :default-active="activeIndex" class="el-menu" mode="horizontal" @select="handleSelect">
       <h2 class="title">Kalec的预告片网站</h2>
-      <el-menu-item index="1" class="right-menu">处理中心</el-menu-item>
+      <el-menu-item index="1" class="right-menu">关于本站</el-menu-item>
       <el-submenu index="2" class="right-menu">
-        <template slot="title">我的工作台</template>
+        <template slot="title">详细分类</template>
         <el-menu-item index="2-1">选项1</el-menu-item>
         <el-menu-item index="2-2">选项2</el-menu-item>
         <el-menu-item index="2-3">选项3</el-menu-item>
@@ -16,7 +16,9 @@
         </el-submenu>
       </el-submenu>
       <el-menu-item index="3" disabled class="right-menu">消息中心</el-menu-item>
-      <el-menu-item index="4" class="right-menu"><a href="https://www.ele.me" target="_blank">订单管理</a></el-menu-item>
+      <el-menu-item index="4" class="right-menu">
+        <a href="https://www.ele.me" target="_blank">登录</a>
+      </el-menu-item>
     </el-menu>
   </nav>
 

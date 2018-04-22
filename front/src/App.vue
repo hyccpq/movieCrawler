@@ -64,6 +64,6 @@
     color:#333;
   }
   .right-content {
-    padding-left: 100px;
+    padding-left: 68px;
   }
 </style>
