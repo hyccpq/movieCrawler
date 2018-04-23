@@ -8,7 +8,10 @@ export default new Vuex.Store({
 	state: {
 		movies: {},
 		movieTypes:[],
-		movieDetail: {}
+		movieDetail: {
+			raletiveMovie:[],
+			movie:{}
+		}
 	},
 	
 	actions:{
@@ -22,13 +25,11 @@ export default new Vuex.Store({
 			commit('GET_MOVIE_TYPES', res)
 			return res
 		},
-		async getMovieDetail({ commit }, { id }) {
+		async getMovieDetail({ commit }, id) {
 			let res = await movieApi.getMovieDetail(id)
 			commit('GET_MOVIE_DETAILS', res)
 		}
-	}
-	
-	,
+	},
 	
 	mutations: {
 		GET_ALL_MOVIES(state, { data }) {
@@ -36,6 +37,11 @@ export default new Vuex.Store({
 		},
 		GET_MOVIE_TYPES(state, { data }) {
 			state.movieTypes = data.types.movieTypes
+		},
+		GET_MOVIE_DETAILS(state, { data }){
+			console.log(data.data);
+			state.movieDetail.movie = data.data.movie
+			state.movieDetail.raletiveMovie = data.data.raletiveMovie
 		}
 	}
 })

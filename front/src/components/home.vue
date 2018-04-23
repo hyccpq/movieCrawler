@@ -10,14 +10,14 @@ imageMogr2/auto-orient/thumbnail/540x800!/blur/1x0/quality/75|imageslim`"
 
           <div style="padding: 14px;" class="content-section">
             <div class="summery">
-              <router-link :to="`/detail/${value.doubanId}`">
+              <router-link :to="`/detail/${value._id}`">
                 <h2 class="title">{{ value.rawTitle }}</h2>
               </router-link>
               <p>{{ value.summary }}</p>
             </div>
             <div class="bottom clearfix content-item-little">
               <time class="time">{{ localTime(value.meta.updatedAt) }}</time>
-              <router-link :to="`/detail/${value.doubanId}`">
+              <router-link :to="`/detail/${value._id}`">
                 <el-button type="text" class="button">查看详细</el-button>
               </router-link>
               <div class="douban-rate"><span>豆瓣评分：</span>{{ value.rate }}</div>
