@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="showDetail">
     <main class="movie-info">
       <h3 class="title">{{ movie.title }}</h3>
       <div class="create-time">收录时间:<time>{{ localTime(movie.meta.createdAt) }}</time></div>
@@ -8,6 +8,7 @@
         电影类型:
         <li v-for="item in movie.movieTypes">{{ item }}</li>
       </ul>
+      <myplayer :option="opt"></myplayer>
     </main>
 
   </div>
@@ -15,20 +16,31 @@
 
 <script>
   import { mapState } from 'vuex'
-  // import player from './plugin/player'
+  import player from './plugin/player'
 	export default {
 		name: "detail",
+    data(){
+			return {
+				showDetail: false,
+        opt:{}
+      }
+    },
 		computed: {
       ...mapState({
         movie: store => store.movieDetail.movie
       })
 		},
     components:{
-			// player
+			myplayer:player
     },
-    beforeCreate(){
-			this.$store.dispatch('getMovieDetail', this.$route.params.id)
+    async beforeCreate(){
+			await this.$store.dispatch('getMovieDetail', this.$route.params.id)
+      this.showDetail = true
     },
+    mounted(){
+
+    },
+
     methods: {
 			localTime(UTCtime){
 				let date = new Date(UTCtime)

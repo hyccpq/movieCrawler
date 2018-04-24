@@ -7,9 +7,22 @@
   import DPlayer from 'dplayer'
 	export default {
 		name: "player",
+    props:{
+			option:{
+				default: {
+					container: ''
+        },
+        type: Object
+      }
+    },
     data(){
 			return {
 				dp: null
+      }
+    },
+    watch:{
+			'option'(opt){
+				this.showVideoPlayer(opt)
       }
     },
     methods:{
@@ -19,7 +32,7 @@
       }
     },
     mounted(){
-
+      this.showVideoPlayer(this.option)
       // const events = player.events
       // Object.keys(events).forEach(item => {
       // 	if(item === 'events'){

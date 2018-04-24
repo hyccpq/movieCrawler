@@ -27,7 +27,7 @@ imageMogr2/auto-orient/thumbnail/540x800!/blur/1x0/quality/75|imageslim`"
       </el-col>
     </el-row>
     <my-box :isShowLog="isShowVideoPlayer" @onChange="changeVideo">
-      <myplayer ref="myplayer"></myplayer>
+      <myplayer ref="myplayer" :option="opt"></myplayer>
     </my-box>
   </section>
 </template>
@@ -55,9 +55,7 @@ imageMogr2/auto-orient/thumbnail/540x800!/blur/1x0/quality/75|imageslim`"
     data() {
 			return {
 				currentDate: new Date(),
-        opt: {
-
-        },
+        opt: {},
         isShowVideoPlayer: false
         // movies: []
       }
@@ -80,14 +78,12 @@ imageMogr2/auto-orient/thumbnail/540x800!/blur/1x0/quality/75|imageslim`"
 		        pic: 'http://uploads.kalecgos.top/' + img
           }
         }
-        this.$refs.myplayer.showVideoPlayer(this.opt)
         this.changeVideo();
       },
       changeVideo(){
 				if(this.isShowVideoPlayer){
 					this.isShowVideoPlayer = false
           this.opt = {}
-          this.$refs.myplayer.showVideoPlayer(this.opt)
         } else {
 					setTimeout(()=>{
 						this.isShowVideoPlayer = true
