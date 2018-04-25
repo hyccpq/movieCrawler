@@ -63,6 +63,9 @@
     text-decoration:none;
     color:#333;
   }
+  li{
+    list-style: none;
+  }
   .right-content {
     padding-left: 68px;
   }

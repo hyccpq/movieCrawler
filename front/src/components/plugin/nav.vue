@@ -19,6 +19,9 @@
       <el-menu-item index="4" class="right-menu">
         <a href="https://www.ele.me" target="_blank">登录</a>
       </el-menu-item>
+      <el-menu-item index="5" class="right-menu">
+        首页
+      </el-menu-item>
     </el-menu>
   </nav>
 
@@ -40,8 +43,7 @@
     },
     data() {
       return {
-        activeIndex: '1',
-        activeIndex2: '1'
+        activeIndex: '5'
       };
     },
     methods: {

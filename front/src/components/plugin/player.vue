@@ -1,5 +1,7 @@
 <template>
-  <div id="dplayer"></div>
+  <section>
+    <div id="dplayer"></div>
+  </section>
 </template>
 
 <script>
@@ -48,6 +50,8 @@
 </script>
 
 <style scoped>
-
+#dplayer {
+  height: 600px;
+}
 
 </style>
