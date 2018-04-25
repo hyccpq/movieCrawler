@@ -39,9 +39,8 @@ export default new Vuex.Store({
 			state.movieTypes = data.types.movieTypes
 		},
 		GET_MOVIE_DETAILS(state, { data }){
-			console.log(data.data);
 			state.movieDetail.movie = data.data.movie
-			state.movieDetail.raletiveMovie = data.data.raletiveMovie
+			state.movieDetail.raletiveMovie = data.data.relativeMovies
 		}
 	}
 })

@@ -24,14 +24,18 @@
       <section class="movie-all">
         <myplayer :option="opt" class="player"></myplayer>
         <div class="relative-area">
-
+          <relative :relativeMovie="relativeMovies"></relative>
         </div>
       </section>
       <section class="comment-details">
         <div class="movie-tag">
           <div>标签:</div>
 
-          <el-tag type="warning" v-for="(tag, key) in movie.tags" :style="{marginLeft:'20px'}">{{ tag }}</el-tag>
+          <el-tag type="warning"
+                  v-for="(tag, key) in movie.tags"
+                  :style="{marginLeft:key === 0 ? '0' : '30px'}">
+            {{ tag }}
+          </el-tag>
 
         </div>
       </section>
@@ -43,6 +47,7 @@
 <script>
   import { mapState } from 'vuex'
   import player from './plugin/player'
+  import relative from './plugin/relative'
   import { breadcrumb, breadcrumbItem, tag } from 'element-ui'
 	export default {
 		name: "detail",
@@ -55,14 +60,15 @@
 		computed: {
       ...mapState({
         movie: store => store.movieDetail.movie,
-        relativeMovies: store => store.movieDetail.relativeMovies
+        relativeMovies: store => store.movieDetail.raletiveMovie
       })
 		},
     components:{
 			myplayer:player,
       elBreadcrumb:breadcrumb,
       elBreadcrumbItem:breadcrumbItem,
-      elTag:tag
+      elTag:tag,
+      relative
     },
     async beforeCreate(){
 			await this.$store.dispatch('getMovieDetail', this.$route.params.id)
@@ -147,7 +153,6 @@
     .relative-area{
       width: 380px;
       height: 600px;
-      background: beige;
       float: left;
     }
   }
