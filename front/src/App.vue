@@ -69,4 +69,7 @@
   .right-content {
     padding-left: 68px;
   }
+  .el-card>.el-card__body {
+    padding: 0;
+  }
 </style>

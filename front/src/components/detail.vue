@@ -31,9 +31,8 @@
         <div class="movie-tag">
           <div>标签:</div>
 
-          <el-tag type="warning"
-                  v-for="(tag, key) in movie.tags"
-                  :style="{marginLeft:key === 0 ? '0' : '30px'}">
+          <el-tag v-for="(tag, key) in movie.tags"
+                  :style="{marginLeft:key === 0 ? '0' : '30px'}" :key="key+''">
             {{ tag }}
           </el-tag>
 
