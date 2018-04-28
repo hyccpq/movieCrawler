@@ -30,7 +30,7 @@
     },
     methods:{
 			searchTypes(item){
-        this.$router.push('?type='+item)
+        this.$router.push('/?type='+item)
         this.$store.dispatch('getMoviesList', {type: item})
       }
     },

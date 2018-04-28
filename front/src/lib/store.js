@@ -10,12 +10,15 @@ export default new Vuex.Store({
 		movieTypes:[],
 		movieDetail: {
 			raletiveMovie:[],
-			movie:{}
+			movie:{
+				videoKey: '',
+				coverKey: ''
+			}
 		}
 	},
 	
 	actions:{
-		async getMoviesList({ commit }, { type='', year='', page='', limit='' } = {}){
+		async getMoviesList({ commit }, { type='', year, page, limit=10 } = {}){
 			console.log(type);
 			let res = await movieApi.getAllMoviesList(type, year, page, limit)
 			commit('GET_ALL_MOVIES', res)

@@ -53,14 +53,21 @@
     data(){
 			return {
 				showDetail: false,
-        opt:{}
       }
     },
 		computed: {
       ...mapState({
         movie: store => store.movieDetail.movie,
         relativeMovies: store => store.movieDetail.raletiveMovie
-      })
+      }),
+      opt(){
+      	return {
+      		video:{
+		        url: 'http://uploads.kalecgos.top/' + this.movie.videoKey,
+		        pic: 'http://uploads.kalecgos.top/' + this.movie.coverKey
+          }
+        }
+      }
 		},
     components:{
 			myplayer:player,
@@ -72,12 +79,6 @@
     async beforeCreate(){
 			await this.$store.dispatch('getMovieDetail', this.$route.params.id)
       this.showDetail = true
-      this.opt = {
-				video:{
-		        url: 'http://uploads.kalecgos.top/' + this.movie.videoKey,
-		        pic: 'http://uploads.kalecgos.top/' + this.movie.coverKey
-          }
-      }
     },
     methods: {
 			localTime(UTCtime){

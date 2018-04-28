@@ -6,13 +6,15 @@
     <div class="text-item">
       <ul>
         <li v-for="movie in relativeMovie" class="movie-list">
-          <div class="movie-item">
-            <img class="cover-min" :src="'http://uploads.kalecgos.top/'+ movie.coverKey" alt="">
-            <div class="info">
-              <p class="title">{{ movie.title }}</p>
-              <time class="time">{{ movie.meta.updatedAt }}</time>
+          <router-link :to="`/detail/${movie._id}`">
+            <div class="movie-item">
+              <img class="cover-min" :src="'http://uploads.kalecgos.top/'+ movie.coverKey" alt="">
+              <div class="info">
+                <p class="title">{{ movie.title }}</p>
+                <time class="time">{{ movie.meta.updatedAt }}</time>
+              </div>
             </div>
-          </div>
+          </router-link>
         </li>
       </ul>
     </div>
@@ -28,6 +30,12 @@
     },
     props:{
 			relativeMovie:Array
+    },
+    watch:{
+			'$route'(route){
+				console.log(route);
+				this.$store.dispatch('getMovieDetail', route.params.id)
+      }
     }
 	}
 </script>
