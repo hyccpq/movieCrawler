@@ -4,10 +4,10 @@
     <el-menu
       default-active="0"
       class="el-menu-vertical">
-      <el-menu-item index="0">
+      <el-menu-item index="0" @click="searchTypes('')">
         <span slot="title">全部</span>
       </el-menu-item>
-      <el-menu-item v-for="(item, key) in movieTypes" :index="key+1+''" :key="key">
+      <el-menu-item v-for="(item, key) in movieTypes" :index="key+1+''" :key="key" @click="searchTypes(item)">
         <span slot="title">{{item}}</span>
       </el-menu-item>
     </el-menu>
@@ -27,6 +27,17 @@
     },
     props:{
 			movieTypes: Array
+    },
+    methods:{
+			searchTypes(item){
+        this.$router.push('?type='+item)
+        this.$store.dispatch('getMoviesList', {type: item})
+      }
+    },
+    watch:{
+      async 'route'(route){
+      	console.log(route.query.type)
+      }
     }
 	}
 </script>
