@@ -64,6 +64,8 @@
   bottom: 0;
   margin: auto;
   z-index: 10;
+  background-color: #fff;
+  border-radius: 5px;
 }
 
 </style>

@@ -17,12 +17,15 @@
       </el-submenu>
       <el-menu-item index="3" disabled class="right-menu">消息中心</el-menu-item>
       <el-menu-item index="4" class="right-menu">
-        <a href="https://www.ele.me" target="_blank">登录</a>
+        登录
       </el-menu-item>
       <el-menu-item index="5" class="right-menu">
         首页
       </el-menu-item>
     </el-menu>
+    <login :isShowLog="isShowLogin" @onChange="loginChange">
+      <myForm class="my-form"></myForm>
+    </login>
   </nav>
 
 
@@ -34,21 +37,33 @@
     MenuItem,
     Submenu
   } from 'element-ui'
+  import login from './box'
+  import myForm from './form'
 	export default {
 		name: "my-nav",
     components: {
 			elMenu: Menu,
       elMenuItem: MenuItem,
-      elSubmenu: Submenu
+      elSubmenu: Submenu,
+      login,
+      myForm
     },
     data() {
       return {
-        activeIndex: '5'
+        activeIndex: '5',
+        isShowLogin: false
       };
     },
     methods: {
       handleSelect(key, keyPath) {
-        console.log(key, keyPath);
+        console.log(key);
+        if(key == 4){
+        	console.log(key);
+        	this.loginChange();
+        }
+      },
+      loginChange(){
+      	this.isShowLogin = !this.isShowLogin
       }
     }
   }
@@ -74,6 +89,12 @@
       float: right;
     }
   }
+}
+.my-form{
+  width: 500px;
+  height: 300px;
+  margin: 80px auto;
+  background-color: #fff;
 }
   
 </style>
