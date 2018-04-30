@@ -9,6 +9,23 @@ exports.initSchemas = () => {
 	glob.sync(resolve(__dirname, './schema', '**/*.js')).forEach(item => require(item))
 }
 
+exports.initAdmin = async() =>{
+	const User = mongoose.model('User')
+	let user = await User.findOne({
+		username:'hyccpq'
+	})
+	
+	if(!user){
+		const user = new User({
+			username: 'hyccpq',
+			email: 'hyccpq@hotmail.com',
+			password: 'yyyyyy'
+		})
+		
+		await user.save()
+	}
+}
+
 exports.connect = () => {
 	let maxConnect = 0
 	
@@ -34,7 +51,7 @@ exports.connect = () => {
 			if(maxConnect < 5){
 				mongoose.connect(db)
 			} else {
-				reject()
+				reject(err)
 				throw new Error('数据库连接失败！')
 			}
 		})

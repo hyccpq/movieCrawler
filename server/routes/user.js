@@ -6,8 +6,10 @@ import { checkPassword } from '../service/admin'
 export class User {
 	@post('/')
 	async loadControl (ctx, next) {
-		const { email, password } = ctx.request.body
-		const matchData = await checkPassword(email, password)
+		
+		const { username, password } = ctx.request.body
+		console.log(username, password);
+		const matchData = await checkPassword(username, password)
 		
 		if(matchData.data) {
 			ctx.body = {

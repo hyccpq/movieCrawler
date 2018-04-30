@@ -1,23 +1,24 @@
 <template>
-  <el-form :model="ruleForm2" status-icon :rules="rules2" ref="ruleForm2" label-width="100px" class="demo-ruleForm">
+  <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
     <h3 class="title">账户登录</h3>
     <el-form-item label="用户名" prop="name">
-      <el-input v-model.number="ruleForm2.name"></el-input>
+      <el-input v-model.number="ruleForm.name"></el-input>
     </el-form-item>
     <el-form-item label="密码" prop="pass">
-      <el-input type="password" v-model="ruleForm2.pass" auto-complete="off"></el-input>
+      <el-input type="password" v-model="ruleForm.pass" auto-complete="off"></el-input>
     </el-form-item>
     <el-form-item>
-      <el-button type="primary" @click="submitForm('ruleForm2')">提交</el-button>
-      <el-button @click="resetForm('ruleForm2')">重置</el-button>
+      <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
+      <el-button @click="resetForm('ruleForm')">重置</el-button>
     </el-form-item>
   </el-form>
 </template>
 
 <script>
+  import { login } from '../../lib/api'
   import { Form, FormItem, Input, Button } from 'element-ui'
 	export default {
-		name: "form",
+		name: "myform",
     components:{
 			elForm:Form,
       elFormItem:FormItem,
@@ -34,18 +35,15 @@
         if (value === '') {
           callback(new Error('请输入密码'));
         } else {
-          if (this.ruleForm2.checkPass !== '') {
-            this.$refs.ruleForm2.validateField('checkPass');
-          }
           callback();
         }
       };
       return {
-        ruleForm2: {
+        ruleForm: {
           pass: '',
           name: ''
         },
-        rules2: {
+        rules: {
           pass: [
             { validator: validatePass, trigger: 'blur' }
           ],
@@ -56,7 +54,7 @@
       };
     },
     methods: {
-      submitForm(formName) {
+      async submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
             alert('submit!');
@@ -64,7 +62,10 @@
             console.log('error submit!!');
             return false;
           }
-        });
+        })
+
+        let info = await login(this.ruleForm.name, this.ruleForm.pass)
+        console.log(info);
       },
       resetForm(formName) {
         this.$refs[formName].resetFields();

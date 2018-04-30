@@ -38,7 +38,7 @@
     Submenu
   } from 'element-ui'
   import login from './box'
-  import myForm from './form'
+  import myForm from './myform'
 	export default {
 		name: "my-nav",
     components: {

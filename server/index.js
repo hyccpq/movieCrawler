@@ -1,9 +1,9 @@
 const Koa = require('koa')
-const { connect, initSchemas } = require('./database/init')
+const { connect, initSchemas, initAdmin } = require('./database/init')
 // const routes = require('./routes')
 const { resolve } = require('path')
 const R = require('ramda')
-const MIDDLEWARES = ['router', 'logs']
+const MIDDLEWARES = ['bodyparser', 'router', 'logs']
 const prod = process.env.NODE_ENV === 'production'
 	console.log(process.env.NODE_ENV);
 if(!prod){
@@ -13,10 +13,13 @@ if(!prod){
 }
 
 const app = new Koa()
+
 ;(async () =>{
 	await connect()
 	
 	initSchemas()
+	
+	await initAdmin()
 	// await require('./tasks/process')
 	// await require('./tasks/api')
 	// await require('./tasks/trailer_video_process')

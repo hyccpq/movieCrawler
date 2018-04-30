@@ -56,14 +56,14 @@ userSchema.pre('save', function(next) {
 		bcrypt.hash(this.password, salt, (error, hash) => {
 			if(error) return next(error)
 			this.password = hash
-			
-			next()
+				console.log(this);
 		})
+		next()
 	})
 	next()
 })
 
-userSchema.method = {
+userSchema.methods = {
 	comparePassword: (_password, password) => {
 		return new Promise((resolve, reject) => {
 			bcrypt.compare(_password, password, (err, isMatch) => {
