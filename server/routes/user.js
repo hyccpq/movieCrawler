@@ -11,7 +11,7 @@ export class User {
 		console.log(username, password);
 		const matchData = await checkPassword(username, password)
 		
-		if(matchData.data) {
+		if(matchData.match) {
 			ctx.body = {
 				succsee: true
 			}

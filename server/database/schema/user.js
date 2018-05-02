@@ -57,10 +57,10 @@ userSchema.pre('save', function(next) {
 			if(error) return next(error)
 			this.password = hash
 				console.log(this);
+				next()
 		})
-		next()
+		
 	})
-	next()
 })
 
 userSchema.methods = {

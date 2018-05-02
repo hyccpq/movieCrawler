@@ -7,7 +7,7 @@ export const checkPassword = async (username, password) => {
 	
 	if(user) {
 		match = await user.comparePassword(password, user.password)
-		console.log(match);
+		console.log('密码比对情况：',match);
 	}
 	
 	return {
