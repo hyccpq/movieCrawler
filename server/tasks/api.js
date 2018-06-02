@@ -19,7 +19,7 @@ async function fetchMovie(item) {
 	return res
 }
 
-;(async () => {
+module.exports = async () => {
   let movies = await Movie.find({
     $or: [
       {summary: {$exists: false}},
@@ -75,4 +75,4 @@ async function fetchMovie(item) {
       await movie.save()
     }
   }
-})()
+}

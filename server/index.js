@@ -20,10 +20,10 @@ const app = new Koa()
 	initSchemas()
 	
 	await initAdmin()
-	// await require('./tasks/process')
-	// await require('./tasks/api')
-	// await require('./tasks/trailer_video_process')
-	// await require('./tasks/qiniu')
+	// await require('./tasks/process')()
+	// await require('./tasks/api')()
+	// await require('./tasks/trailer_video_process')()
+	require('./tasks/qiniu')
 	
 	const useMiddlewares = app => {
 		R.map(

@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const Movie = mongoose.model('Movie');
 
 
-(async() => {
+module.exports = async() => {
 	let movies = await Movie.find({
 		$or:[
 			{ video: {$exists: false } },
@@ -48,4 +48,4 @@ const Movie = mongoose.model('Movie');
 	})
 	
 	child.send(movies)
-})()
+}

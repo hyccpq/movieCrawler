@@ -1,6 +1,6 @@
 const puppeteer = require('puppeteer');
 
-const url = 'https://movie.douban.com/explore#!type=movie&tag=%E7%83%AD%E9%97%A8&sort=recommend&page_limit=20&page_start=0';
+const url = 'https://movie.douban.com/explore#!type=movie&tag=%E7%83%AD%E9%97%A8&sort=recommend&page_limit=40&page_start=0';
 
 const sleep = time => new Promise(resolve => {
 	setTimeout(resolve, time)
@@ -19,7 +19,7 @@ const sleep = time => new Promise(resolve => {
 		waitUntil: 'networkidle2'
 	});
 	
-	await sleep(3000);
+	await sleep(1000);
 	
 	await page.waitForSelector('.more');
 	

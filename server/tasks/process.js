@@ -4,7 +4,7 @@ const { resolve } = require('path');
 const mongoose = require('mongoose')
 const Movie = mongoose.model('Movie')
 
-;(async () => {
+module.exports = async () => {
 	const script = resolve(__dirname, '../crawler/trailer_list.js');
 	const child = cp.fork(script, []);
 	let invoked = false;
@@ -39,4 +39,4 @@ const Movie = mongoose.model('Movie')
 			}
 		})
 	})
-})()
+}
